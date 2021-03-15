@@ -14,5 +14,5 @@ export class AppComponent {
   formatRating = formatRating;
 
   title = 'Board Game Hoard';
-  games = this.http.get<any[]>('/api/games')
+  games$ = this.http.get<any[]>('/api/games')
 }
