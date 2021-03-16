@@ -2,7 +2,7 @@ Workshop from isaac@nrwl.io and jason@nrwl.io
 
 Questions? [Join nrwl community](https://nx.dev/nx-community)
 
-# General Cool Things
+# General Tips
 
 ## Architecture Diagram
 `nx dep-graph`
@@ -18,6 +18,17 @@ Questions? [Join nrwl community](https://nx.dev/nx-community)
 ## Java & Javascript Together
 
 See [this github repo](https://github.com/FrozenPandaz/nx-examples/commit/cc91f5f89a1b89c0ac33c9ba3984ba7dc5046fd5) for a preliminary example
+
+## Undoing nx generate
+- use `--dryRun` or `-d` flag for dry runs first
+- have a clean git working en before doing any nx generate commands so you can just wipe changed files
+
+## Test Coverage
+- change in one library in a monorepo could easily break others 
+  - tests within the monorepo will catch that if dependencies are properly laid out
+  - if there are no tests, nx can't help here
+  - nx is most useful when there is decent test coverage
+
 
 # Day One
 
@@ -187,15 +198,6 @@ bg-hoard
 
 - in typical nx app,
 - each route will be own feature library
-
-
-!!! - clean git state before doing any nx stuff
-
-!!! - nx is only useful when there is decent test coverage
-
-
-
-
 
 # Day 2
 
