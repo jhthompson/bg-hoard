@@ -99,27 +99,18 @@ Code co-location = term for monorepo without tooling like nx
 - `yarn add [plugin]`
   - ex. `yarn add @nrwl/nest`
 
-### Schematics
+## Schematics & Workspace Generators
+- organizations usually have standards for how to create a new app, how to lay out files, etc.
+- steps like these in a Readme can instead be encoded in a workspace generator
+
 - `nx generate [plugin]:[schematic] [options]`
   - ex. `nx g @nrwl/angular:app my-app`
 
-
-
-code generation
-- if nrwl plugin versions match, code generation should just work
-
-workspace schematics
-- steps in Readme can be encoded in workspace generator
-
-
-
-
-
 ## Builders & Executors
 - executors are builders built with the angular cli
+- defined in workspace.json (angular.json)
 - builders run commands on our code (things that do not get committed)
-- build, serve, lint, test (different than generators)
-- all defined in workspace.json (angular.json)
+  - ex. build, serve, lint, test (different than generators)
 
 - to run, `nx run [project]:[target] [options]`
   - ex. `nx run my-app:serve`
@@ -130,8 +121,26 @@ workspace schematics
 
 ## Libraries
 
-- recommended distinctions (ie. can prefix libraries with the proper distinction) 
-- each distinction can only depend on same level or below
+### Recommended Distinctions / Naming
+- each category can only depend on one from the same level or below
+  
+1. feature
+    - ex. `feat-home`
+    - can depend on other feature, ui, data, util libs
+
+2. ui
+    - ex. `ui-input-forms`
+    - buttons, text field, layouts, reusable, no network calls / interaction
+    - can depend on ui, data, util libs
+
+3. data
+    - ex. `data-access-authentication`
+    - can depend on data, util libs
+
+4. util
+    - ex. `util-validation-fns`
+    - pure functions, types, can only depend on other util libs
+  
 - directory structure
   - folder for each application in libs/ folder (ie. libs/store/...)
 
@@ -168,23 +177,6 @@ bg-hoard
         │   ...
 ```
 
-- feature
-  - ex. `feat-home`
-  - can depend on other feature, ui, data, and/or util libs
-
-- ui
-  - ex. `ui-input-forms`
-  - buttons, text field, layouts, reusable, no network calls / interaction
-  - can depend on ui, data, util libs
-
-- data
-  - ex. `data-access-authentication`
-  - can depend on data, util libs
-
-- util
-  - ex. `util-validation-fns`
-  - pure functions, types, can only depend on other util libs
-
 
 ### When to split code in to libraries?
 - if you have one giant library, nx speedups will not be used to their full extent
@@ -192,12 +184,13 @@ bg-hoard
 - if different library wants to use part of your code, but not all of it
 
 
-- nx recommendation is to put as much code in to libraries
-- at some point in future, could re-use code in different application
+- nx recommendation is to put as much code in to libraries as reasonably possible (libraries are the unit in nx)
+  - at some point in future we could re-use code in a different application
 
-
-- in typical nx app,
-- each route will be own feature library
+- ex. in typical nx app:
+  - each route will be own feature library
+  - `/home`
+  - `/games`
 
 # Day 2
 
