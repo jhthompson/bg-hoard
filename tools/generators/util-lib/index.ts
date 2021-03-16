@@ -2,7 +2,12 @@ import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
 import { libraryGenerator } from '@nrwl/workspace/generators';
 
 export default async function (host: Tree, schema: any) {
-  await libraryGenerator(host, { name: `util-${schema.name}`, linter: 'tslint', tags: `type:util, scope:${schema.directory}`, });
+  await libraryGenerator(host, {
+    name: `util-${schema.name}`,
+    directory: schema.directory,
+    linter: 'tslint',
+    tags: `type:util, scope:${schema.directory}`,
+  });
   await formatFiles(host);
   return () => {
     installPackagesTask(host);
