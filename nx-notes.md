@@ -76,26 +76,26 @@ Code co-location = term for monorepo without tooling like nx
 - linting, schematics (ex. run this generator, and it will make all code changes necessary when making a new app)
 
 - libraries are the main unit of work in nx repos
-- granularity is at library level
-- code boundary is at library level
+  - granularity is at library level
+  - code boundary is at library level
 
 - workspace.json === angular.json
-- nx.json: tags, manual dependencies
+  - nx.json: tags, manual dependencies
 
 - global tsconfig & project level tsconfig
-- project level ones extend the global tsconfig (same for jest)
+  - project level ones extend the global tsconfig (same for jest)
 
 
 - `npx create-nx-workspace [workspace-name]`
 - workspace name sets three things:
   - something...?
   - directory
-  - path alias '@my-org'
+  - npm path alias `@my-org`
 
 
 ## Plugins
 - provided by nrwl or 3rd party community members
-- `nx list` shows all availabl
+- `nx list` shows all available plugins
 - `yarn add [plugin]`
   - ex. `yarn add @nrwl/nest`
 
