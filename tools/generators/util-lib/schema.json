@@ -10,7 +10,31 @@
         "$source": "argv",
         "index": 0
       }
+    },
+    "directory": {
+      "type": "string",
+      "description": "Provide the directory",
+      "x-prompt": {
+        "message": "Which directory should this library be generated in?",
+        "type": "list",
+        "items": [
+          {
+            "value": "store",
+            "label": "store"
+          },
+          {
+            "value": "api",
+            "label": "api"
+          },
+          {
+            "value": "shared",
+            "label": "shared"
+          }
+        ]
+      }
     }
   },
-  "required": ["name"]
+  "required": [
+    "name"
+  ]
 }
