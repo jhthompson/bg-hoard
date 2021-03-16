@@ -1,3 +1,7 @@
+Workshop from isaac@nrwl.io and jason@nrwl.io 
+
+Questions? [Join nrwl community](https://nx.dev/nx-community)
+
 # General Cool Things
 
 ## Architecture Diagram
