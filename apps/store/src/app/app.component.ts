@@ -16,5 +16,7 @@ export class AppComponent {
 
   constructor(
     private http: HttpClient
-  ) {}
+  ) {
+    console.log('component constructed');
+  }
 }
