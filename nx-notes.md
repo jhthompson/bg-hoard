@@ -15,7 +15,9 @@ Questions? [Join nrwl community](https://nx.dev/nx-community)
 ## Easing in to New Framework
 - don't need to know details of nest (or any other frmework) config, can create stuff with nx plugin and then get straight to playing with it without setting up configs
 
+## Java & Javascript Together
 
+See [this github repo](https://github.com/FrozenPandaz/nx-examples/commit/cc91f5f89a1b89c0ac33c9ba3984ba7dc5046fd5) for a preliminary example
 
 # Day One
 
