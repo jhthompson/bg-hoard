@@ -1,7 +1,8 @@
 import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
 import { libraryGenerator } from '@nrwl/workspace/generators';
+import { SchematicOptions } from './schema';
 
-export default async function (host: Tree, schema: any) {
+export default async function (host: Tree, schema: SchematicOptions) {
   await libraryGenerator(host, {
     name: `util-${schema.name}`,
     directory: schema.directory,
