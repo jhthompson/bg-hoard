@@ -9,7 +9,7 @@ Questions? [Join nrwl community](https://nx.dev/nx-community)
 - can be a sanity check to make sure app is architected properly
 
 ## Vscode & IntelliJ(?) Plugin
-`nx-console`
+[nx-console](https://nx.dev/latest/angular/getting-started/console)
 - helpful to see options for generate, run, build, serve, test, etc.
 
 ## Easing in to New Framework
