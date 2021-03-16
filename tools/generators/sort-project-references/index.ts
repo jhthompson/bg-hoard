@@ -1,5 +1,4 @@
 import { Tree, formatFiles, installPackagesTask, updateJson } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
 
 function sortObjectKeys(obj: any) {
   const sorted = {};
@@ -23,10 +22,6 @@ export default async function (host: Tree, schema: any) {
     return json;
   });
 
-  await libraryGenerator(host, { name: schema.name });
-  
   await formatFiles(host);
-  return () => {
-    installPackagesTask(host);
-  };
+
 }
