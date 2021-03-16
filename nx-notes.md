@@ -1,12 +1,12 @@
-# General Highlights / Benefits
+# General Cool Things
 
-## Accurate Architecture Diagram
-```
-nx dep-graph
-```
+## Architecture Diagram
+`nx dep-graph`
+- can be a sanity check to make sure app is architected properly
 
-## VsCode Plugin
-nx-console
+## Vscode & IntelliJ(?) Plugin
+`nx-console`
+- helpful to see options for generate, run, build, serve, test, etc.
 
 ## Easing in to New Framework
 - don't need to know details of nest (or any other frmework) config, can create stuff with nx plugin and then get straight to playing with it without setting up configs
@@ -33,9 +33,9 @@ nx-console
     - all applications versions can upgrade angular version at same time for example
 
 
-## Drawbacks / Costs:
+## Drawbacks / Costs (without ):
 
-code collocation: monorepo without tooling like nx
+Code co-location = term for monorepo without tooling like nx
 
 1. Running unnecessary tests
     - if tooling doesn't know about library dependencies, all tests will have to run all tests when unnecessary
@@ -45,7 +45,6 @@ code collocation: monorepo without tooling like nx
 
 3. Inconsistent tooling
     - many flags being added, different apps with different ways of running, testing, run vs serve, etc.
-
 
 ## How does nx help?
 - faster, using builders
