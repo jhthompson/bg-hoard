@@ -16,7 +16,7 @@
   "npmScope": "bg-hoard",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": [
           "build",
@@ -24,7 +24,10 @@
           "test",
           "e2e",
           "build-storybook"
-        ]
+        ],
+        "accessToken": "MTM2Y2EyNzAtZTZlMC00ZjJkLTk0MDMtM2Y4MTAxMGE0ZGExfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
       }
     }
   },
