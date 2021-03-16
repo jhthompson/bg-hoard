@@ -4,9 +4,12 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 
+import { StoreUiSharedModule } from '@bg-hoard/store/ui-shared';
+
+import { environment } from '../environments/environment'
+
 import { AppComponent } from './app.component';
 
-import { StoreUiSharedModule } from '@bg-hoard/store/ui-shared';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +31,10 @@ import { StoreUiSharedModule } from '@bg-hoard/store/ui-shared';
     MatCardModule,
     StoreUiSharedModule,
   ],
-  providers: [],
+  providers: [{
+    provide: 'baseUrl',
+    useValue: environment.apiUrl
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
