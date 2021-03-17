@@ -75,10 +75,6 @@ Code co-location = term for monorepo without tooling like nx
 - consistent coding practices
 - linting, schematics (ex. run this generator, and it will make all code changes necessary when making a new app)
 
-- libraries are the main unit of work in nx repos
-  - granularity is at library level
-  - code boundary is at library level
-
 - workspace.json === angular.json
   - nx.json: tags, manual dependencies
 
@@ -121,9 +117,60 @@ Code co-location = term for monorepo without tooling like nx
 
 ## Libraries
 
-### Recommended Distinctions / Naming
-- each category can only depend on one from the same level or below
+- libraries are the main unit of work in nx repos
+  - granularity / code boundaries are at library level
+
+### Recommended Tagging Distinctions / Naming
+
+- `scope:[app-name]`
+  - per app
   
+- `type:[type-name]`
+  - each category can only depend on one from the same level or below
+  - recommended to use linting rules to enforce this:
+
+```
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "scope:app-name",
+                "onlyDependOnLibsWithTags": [
+                  "scope:app-name",
+                  "scope:shared"
+                ]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": [
+                  "type:feature",
+                  "type:ui",
+                  "type:util"
+                ]
+              },
+              {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:util"
+                ]
+              },
+              {
+                "sourceTag": "type:util",
+                "onlyDependOnLibsWithTags": [
+                  "type:util"
+                ]
+              }
+            ]
+          }
+        ]
+```
+  
+  ### Suggested `type:[type-name]` tags
+
 1. feature
     - ex. `feat-home`
     - can depend on other feature, ui, data, util libs
@@ -179,7 +226,7 @@ bg-hoard
 
 
 ### When to split code in to libraries?
-- if you have one giant library, nx speedups will not be used to their full extent
+- if you have one giant library, nx caching / speed-ups will not be used to their full capability
 - if one library is doing too many things
 - if different library wants to use part of your code, but not all of it
 
