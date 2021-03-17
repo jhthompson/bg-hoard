@@ -225,7 +225,7 @@ bg-hoard
 ```
 
 
-### When to split code in to libraries?
+### When / why to split code in to libraries?
 - if you have one giant library, nx caching / speed-ups will not be used to their full capability
 - if one library is doing too many things
 - if different library wants to use part of your code, but not all of it
