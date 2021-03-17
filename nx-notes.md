@@ -1,3 +1,5 @@
+Notes & code from https://github.com/nrwl/nx-workshop/
+
 Workshop from isaac@nrwl.io and jason@nrwl.io 
 
 Questions? [Join nrwl community](https://nx.dev/nx-community)
